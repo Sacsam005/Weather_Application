@@ -9,8 +9,7 @@ List of OpenWeatherMap APIs used:
 - [5 day / 3 hour forecast data](https://openweathermap.org/forecast5)
 
 Things that can be considered for future iterations:
-- Work with Google's JavaScript MAP API and places API for enhancements and taking this app to next level.
-Need a minor alteration on the existing code to achieve this. Tried getting the API_KEY from google but failed :(.
+- Work with Google's JavaScript MAP API and places API to enhance and take this to next level. Tried getting the API_KEY from google but failed :(.
 
 Developer's note:
 - I understand the importance of clean, well-organized code, and while this implementation is currently effective and efficient, there is always room for improvement. However, I acknowledge that the code could benefit from some organization and refactoring.
