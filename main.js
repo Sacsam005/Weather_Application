@@ -1,4 +1,4 @@
-// Loader ------------------------------
+// LOADER ------------------------------
 const loader = document.querySelector(".loader");
 document.onreadystatechange = function () {
   if (document.readyState !== "complete") {
@@ -10,25 +10,26 @@ document.onreadystatechange = function () {
     loader.style.visibility = "hidden";
   }
 };
-// End of Loader ------------------------
+// End of LOADER ------------------------
 
 const weatherInformationContainer = document.createElement("div");
 weatherInformationContainer.setAttribute(
   "class",
-  "weather_information_container"
+  "weather_information_container dark_mode_larger_div"
 );
 weatherInformationContainer.innerHTML = `  
         <div class="weather_container_left_panel p-2">
             <div class="weather_container_top_section d-block">
                 <div class="weather_title_div">
                   <h1 style="font-weight: 900">Weather Dashboard</h1>
+                  <button class="dark_mode_button border-0 rounded-0 mt-2" style="box-shadow: rgba(155, 154, 154, 0.6) 0px 2px 8px 0px; font-weight: 900">Light Mode</button>
                 </div>
                 <div class="weather_props_units_button_div">
-                  <button class="metrics_unit_button border-0 rounded-0 mt-2" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; font-weight: 900">Metric</button>
-                  <button class="imperial_unit_button border-0 rounded-0 mt-2" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; font-weight: 900">Imperial</button>
+                  <button class="metrics_unit_button border-0 rounded-0 mt-2" style="box-shadow: rgba(155, 154, 154, 0.6) 0px 2px 8px 0px; font-weight: 900">Metric</button>
+                  <button class="imperial_unit_button border-0 rounded-0 mt-2" style="box-shadow: rgba(155, 154, 154, 0.6) 0px 2px 8px 0px; font-weight: 900">Imperial</button>
                 </div>
               </div>
-            <div class="weather_container_time_and_input_div d-flex justify-content-between align-items-center m-2">
+            <div class="weather_container_time_and_input_div my-2">
                 <p data-time-stamp style="font-weight: 900; margin-bottom: 0"></p>
                 <input type="text" placeholder="Enter a city OR zip code..." onchange="getWeatherData(this.value)">
             </div>
@@ -50,57 +51,56 @@ weatherInformationContainer.innerHTML = `
         </div>
 
         <div class="weather_container_right_panel p-1">
-              
                 <div class="weather_container_bottom_div">
-                <div class="hourly_updated_weather_title_div" style="color: #0D9BE5">
-                    <h6 style="font-weight: 700; margin-bottom: 5px;">Tomorrow's Forecast</h6>
-                    <p class="mb-0" color>3-hr interval <i class="fa fa-arrow-right" style="font-size: 14px" aria-hidden="true"></i></p>
-                </div>
+                  <div class="hourly_updated_weather_title_div" style="color: #0D9BE5">
+                      <h6 style="font-weight: 700; margin-bottom: 5px;">Tomorrow's Forecast</h6>
+                      <p class="mb-0" color>3-hr interval <i class="fa fa-arrow-right" style="font-size: 14px" aria-hidden="true"></i></p>
+                  </div>
               </div>
               <div class="weather_dynamic_props_div_wrapper mt-4">
                 <div class="weather_dynamic_props_div">
                     <div class="row mt-2">
-                        <div class="weather_humidity weather_props_column p-2" title="Humidity">
+                        <div class="weather_humidity weather_props_column dark_mode_smaller_div p-2" title="Humidity">
                           <h6 data-humidity class="label"></h6>
                           <img src="./img/humidity.png" alt="Humidity">
                         </div>
-                        <div class="weather_wind_speed weather_props_column p-2" title="Wind Speed">
+                        <div class="weather_wind_speed weather_props_column dark_mode_smaller_div p-2" title="Wind Speed">
                             <h6 data-wind-speed class="label"></h6>
                             <img src="./img/wind_speed.png" alt="Wind Speed">
                         </div>
-                        <div class="weather_wind_direction weather_props_column p-2" title="Wind Direction">
+                        <div class="weather_wind_direction weather_props_column dark_mode_smaller_div p-2" title="Wind Direction">
                             <h6 data-wind-direction class="label"></h6>
                             <img src="./img/wind_direction.png" alt="Wind Direction">
                         </div>
-                        <div class="weather_visibility weather_props_column p-2" title="Visibility">
+                        <div class="weather_visibility weather_props_column dark_mode_smaller_div p-2" title="Visibility">
                             <h6 data-visibility class="label" style="font-size:12px"></h6>
                             <img src="./img/visibility.png" alt="visibility">
                         </div>
-                        <div class="weather_sunrise weather_props_column p-2" title="Sunrise">
+                        <div class="weather_sunrise weather_props_column dark_mode_smaller_div p-2" title="Sunrise">
                             <h6 data-sunrise class="label"></h6>
                             <img src="./img/sunrise.png" alt="Sunrise">
                         </div>
-                        <div class="weather_sunset weather_props_column p-2" title="Sunset">
+                        <div class="weather_sunset weather_props_column dark_mode_smaller_div p-2" title="Sunset">
                             <h6 data-sunset class="label"></h6>
                             <img src="./img/sunset.png" alt="Sunset">
                         </div>
-                        <div class="weather_cloudiness weather_props_column p-2" title="Cloudiness">
+                        <div class="weather_cloudiness weather_props_column dark_mode_smaller_div p-2" title="Cloudiness">
                             <h6 data-cloudiness class="label"></h6>
                             <img src="./img/cloudiness.png" alt="Cloudiness">
                         </div>
-                        <div class="weather_dew_point weather_props_column p-2" title="Dew Point">
+                        <div class="weather_dew_point weather_props_column dark_mode_smaller_div p-2" title="Dew Point">
                             <h6 data-dew-point class="label"></h6>
                             <img src="./img/dew_point.png" alt="Dew Point">
                         </div>
-                        <div class="weather_pressure weather_props_column p-2" title="Pressure">
+                        <div class="weather_pressure weather_props_column dark_mode_smaller_div p-2" title="Pressure">
                             <h6 data-pressure class="label"></h6>
                             <img src="./img/pressure.png" alt="Pressure">
                         </div>
-                        <div class="weather_air_quality_index weather_props_column p-2" title="Air Quality Index">
+                        <div class="weather_air_quality_index weather_props_column dark_mode_smaller_div p-2" title="Air Quality Index">
                             <h6 data-air-quality-index class="label"></h6>
                             <img src="./img/aqi_index.png" alt="Air Quality Index">
                         </div>
-                        <div class="weather_heat_index weather_props_column p-2" title="Heat Index">
+                        <div class="weather_heat_index weather_props_column dark_mode_smaller_div p-2" title="Heat Index">
                             <h6 data-heat-index class="label"></h6>
                             <img src="./img/heat_index.png" alt="Heat Index">
                         </div>
@@ -111,10 +111,13 @@ weatherInformationContainer.innerHTML = `
 document.body.insertAdjacentElement("afterbegin", weatherInformationContainer);
 
 const developerNoteDiv = document.createElement("div");
-developerNoteDiv.setAttribute("class", "developer_note_div");
+developerNoteDiv.setAttribute(
+  "class",
+  "developer_note_div dark_mode_larger_div"
+);
 developerNoteDiv.setAttribute(
   "style",
-  "position: relative; background-color: #3c3b3f; padding: 10px; font-size: 12px; box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;"
+  "position: relative; padding: 10px; font-size: 12px; box-shadow: rgba(155, 155, 155, 0.3) 0px 3px 8px;"
 );
 developerNoteDiv.innerHTML = `
 <div class="developer_note_wrapper p-2 text-center">
@@ -123,22 +126,22 @@ developerNoteDiv.innerHTML = `
 <span style="color: #0D9BE5; font-weight: bold">- Developer's note</span>
 </div>
 `;
-
 weatherInformationContainer.insertAdjacentElement(
   "beforebegin",
   developerNoteDiv
 );
 
+const darkModeButton = document.querySelector(".dark_mode_button");
 const removeDevNoteBtn = document.querySelector(".remove_dev_note_btn");
 removeDevNoteBtn.addEventListener("click", function () {
   developerNoteDiv.remove();
 });
 
 const footer = document.createElement("div");
-footer.setAttribute("class", "footer_div");
+footer.setAttribute("class", "footer_div dark_mode_larger_div");
 footer.setAttribute(
   "style",
-  "flex-direction: column; background-color: #3c3b3f; text-align: center; padding: 0.5rem; box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;"
+  "flex-direction: column; text-align: center; padding: 0.5rem; box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;"
 );
 footer.innerHTML = `
     <a href="https://openweathermap.org/" target="_blank" style="color: unset;"><i class="fas fa-bolt" style="color: #0CB0FF"></i> Powered by OpenWeatherMap.org</a>
@@ -196,7 +199,6 @@ async function getWeatherData(cityInput, zipCode) {
     }
 
     // Fetching to get 5 nearby cities around the city searched by the user
-    let nearbyCities;
     async function getNearByCities() {
       const lat = dataFromWeatherAPI.city.coord.lat;
       const lon = dataFromWeatherAPI.city.coord.lon;
@@ -437,10 +439,13 @@ function setWeatherContainerWithInformation(data) {
 }
 //--------------------------------------------------------------------------
 
+// WEIRDEST LEARNING - WOW
+// By declaring the weatherUpdateDiv variable outside of the function and setting it to null, you can reference it in the global scope of your code. Then, inside the function, you can assign the value...
+let weatherUpdateDiv = null;
 function setWeatherContainerWithHourlyUpdates(data) {
   // Setting weather forecast with 3-hrs interval hourly updated with information
-  let hourlyUpdatedWeatherDiv = document.createElement("div");
-  hourlyUpdatedWeatherDiv.setAttribute(
+  let hourlyUpdatedWeatherDivWrapper = document.createElement("div");
+  hourlyUpdatedWeatherDivWrapper.setAttribute(
     "class",
     "hourly_updated_weather_div_wrapper"
   );
@@ -448,11 +453,10 @@ function setWeatherContainerWithHourlyUpdates(data) {
     ".weather_container_bottom_div"
   );
   const now = new Date();
-  const lists = data.list;
-  // const list = lists[i];
-  for (let i = 0; i < lists.length; i++) {
-    const list = lists[i];
-    const time = lists[i].dt_txt;
+  const arrayDataLists = data.list;
+  for (let i = 0; i < arrayDataLists.length; i++) {
+    const lists = arrayDataLists[i];
+    const time = lists.dt_txt;
     const forecastTime = new Date(time);
     const diffInDays = Math.floor(
       (forecastTime.getTime(time) - now.getTime(time)) / (1000 * 60 * 60 * 24)
@@ -473,20 +477,19 @@ function setWeatherContainerWithHourlyUpdates(data) {
     }
 
     if (forecastTime > now) {
-      hourlyUpdatedWeatherDiv.innerHTML += `
-    <div class="weather_update_div">
+      hourlyUpdatedWeatherDivWrapper.innerHTML += `
+    <div class="weather_update_div dark_mode_smaller_div">
       <h6 class="weather_time">${timeInterval}</h6>
-      <img src="https://openweathermap.org/img/wn/${list.weather[0].icon}@2x.png" alt="Weather Type" class="weather_image m-auto" width="40px" height="40px"/>
-      <h6 data-hourly-update-temp-main class="weather_temperature">${list.main.temp} °C</h6>
+      <img src="https://openweathermap.org/img/wn/${lists.weather[0].icon}@2x.png" alt="Weather Type" class="weather_image m-auto" width="40px" height="40px"/>
+      <h6 data-hourly-update-temp-main class="weather_temperature">${lists.main.temp} °C</h6>
       <div class="min_max_temperature_container d-flex justify-content-between align-items-center mt-2">
-        <p data-hourly-update-temp-max class="label mb-0" style="font-size: 12px">H: ${list.main.temp_max} °C</p>
-        <p data-hourly-update-temp-min class="label mb-0" style="font-size: 12px">L: ${list.main.temp_min} °C</p>
+        <p data-hourly-update-temp-max class="label mb-0" style="font-size: 12px">H: ${lists.main.temp_max} °C</p>
+        <p data-hourly-update-temp-min class="label mb-0" style="font-size: 12px">L: ${lists.main.temp_min} °C</p>
       </div>
-    </div>
-  `;
+    </div>`;
     }
   }
-  // Remove the existing hourlyUpdatedWeatherDiv before adding a new one
+  // Remove the existing hourlyUpdatedWeatherDivWrapper before adding a new one
   const existingHourlyUpdatedWeatherContainer =
     weatherContainerBottomDiv.querySelector(
       ".hourly_updated_weather_div_wrapper"
@@ -496,9 +499,14 @@ function setWeatherContainerWithHourlyUpdates(data) {
       existingHourlyUpdatedWeatherContainer
     );
   }
-  weatherContainerBottomDiv.appendChild(hourlyUpdatedWeatherDiv);
+  weatherContainerBottomDiv.appendChild(hourlyUpdatedWeatherDivWrapper);
+
+  weatherUpdateDiv = hourlyUpdatedWeatherDivWrapper.querySelectorAll(
+    ".weather_update_div"
+  );
+  return weatherUpdateDiv;
 }
-setWeatherContainerWithHourlyUpdates();
+console.log(weatherUpdateDiv);
 //--------------------------------------------------------------------------
 
 function setWeatherContainerWithAirPollutionData(data) {
@@ -517,7 +525,6 @@ function setWeatherContainerWithAirPollutionData(data) {
       aqiIndex.setAttribute("style", "font-size: 12px")
     : (aqiIndex.innerHTML = `Air Quality: ${aqiName}`);
 }
-setWeatherContainerWithAirPollutionData();
 //--------------------------------------------------------------------------
 
 function setNearByCities(data) {
@@ -526,12 +533,11 @@ function setNearByCities(data) {
   citiesDivWrapper.setAttribute("class", "cities_div_wrapper");
 
   let unit = "C";
-
   function populateAndSwitchUnitsForNearByCitiesContainer() {
     citiesDivWrapper.innerHTML = "";
     for (let i = 0; i < data.length; i++) {
       citiesDivWrapper.innerHTML += `
-    <div class="cities_div">
+    <div class="cities_div dark_mode_smaller_div">
       <p data-nearest-city class="label mb-0">${data[i].name}</p><span>${
         data[i].sys.country
       }</span>
@@ -580,10 +586,48 @@ function setNearByCities(data) {
     unit = "C";
     populateAndSwitchUnitsForNearByCitiesContainer();
   });
-
   imperialUnitButton.addEventListener("click", () => {
     unit = "F";
     populateAndSwitchUnitsForNearByCitiesContainer();
   });
+
+  const citiesDiv = document.querySelectorAll(".cities_div");
+  let isDarkMode = false;
+  darkModeButton.addEventListener("click", () => {
+    isDarkMode = !isDarkMode;
+    setTheme(citiesDiv);
+    setTheme(developerNoteDiv);
+    setTheme(weatherInformationContainer);
+    setTheme(weatherPropsColumn);
+    setTheme(footer);
+    setTheme(weatherUpdateDiv);
+    darkModeButton.innerText = isDarkMode ? "Dark Mode" : "Light Mode";
+  });
 }
+
 //--------------------------------------------------------------------------
+
+// DARK MODE -----------------------
+const weatherPropsColumn = document.querySelectorAll(".weather_props_column");
+function setTheme(domElement) {
+  if (domElement.length > 1) {
+    domElement.forEach((element) => {
+      if (element.classList.contains("dark_mode_smaller_div")) {
+        element.classList.remove("dark_mode_smaller_div");
+        element.classList.add("light_mode_smaller_div");
+      } else if (element.classList.contains("light_mode_smaller_div")) {
+        element.classList.remove("light_mode_smaller_div");
+        element.classList.add("dark_mode_smaller_div");
+      }
+    });
+  } else {
+    if (domElement.classList.contains("dark_mode_larger_div")) {
+      domElement.classList.remove("dark_mode_larger_div");
+      domElement.classList.add("light_mode_larger_div");
+    } else if (domElement.classList.contains("light_mode_larger_div")) {
+      domElement.classList.remove("light_mode_larger_div");
+      domElement.classList.add("dark_mode_larger_div");
+    }
+  }
+}
+// END OF DARK MODE-----------------------
