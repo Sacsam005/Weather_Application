@@ -15,7 +15,7 @@ document.onreadystatechange = function () {
 const weatherInformationContainer = document.createElement("div");
 weatherInformationContainer.setAttribute(
   "class",
-  "weather_information_container dark_mode_larger_div"
+  "weather_information_container dark_mode"
 );
 weatherInformationContainer.innerHTML = `  
         <div class="weather_container_left_panel p-2">
@@ -60,47 +60,47 @@ weatherInformationContainer.innerHTML = `
               <div class="weather_dynamic_props_div_wrapper mt-4">
                 <div class="weather_dynamic_props_div">
                     <div class="row mt-2">
-                        <div class="weather_humidity weather_props_column dark_mode_smaller_div p-2" title="Humidity">
+                        <div class="weather_humidity weather_props_column p-2" title="Humidity">
                           <h6 data-humidity class="label"></h6>
                           <img src="./img/humidity.png" alt="Humidity">
                         </div>
-                        <div class="weather_wind_speed weather_props_column dark_mode_smaller_div p-2" title="Wind Speed">
+                        <div class="weather_wind_speed weather_props_column p-2" title="Wind Speed">
                             <h6 data-wind-speed class="label"></h6>
                             <img src="./img/wind_speed.png" alt="Wind Speed">
                         </div>
-                        <div class="weather_wind_direction weather_props_column dark_mode_smaller_div p-2" title="Wind Direction">
+                        <div class="weather_wind_direction weather_props_column p-2" title="Wind Direction">
                             <h6 data-wind-direction class="label"></h6>
                             <img src="./img/wind_direction.png" alt="Wind Direction">
                         </div>
-                        <div class="weather_visibility weather_props_column dark_mode_smaller_div p-2" title="Visibility">
+                        <div class="weather_visibility weather_props_column p-2" title="Visibility">
                             <h6 data-visibility class="label" style="font-size:12px"></h6>
                             <img src="./img/visibility.png" alt="visibility">
                         </div>
-                        <div class="weather_sunrise weather_props_column dark_mode_smaller_div p-2" title="Sunrise">
+                        <div class="weather_sunrise weather_props_column p-2" title="Sunrise">
                             <h6 data-sunrise class="label"></h6>
                             <img src="./img/sunrise.png" alt="Sunrise">
                         </div>
-                        <div class="weather_sunset weather_props_column dark_mode_smaller_div p-2" title="Sunset">
+                        <div class="weather_sunset weather_props_column p-2" title="Sunset">
                             <h6 data-sunset class="label"></h6>
                             <img src="./img/sunset.png" alt="Sunset">
                         </div>
-                        <div class="weather_cloudiness weather_props_column dark_mode_smaller_div p-2" title="Cloudiness">
+                        <div class="weather_cloudiness weather_props_column p-2" title="Cloudiness">
                             <h6 data-cloudiness class="label"></h6>
                             <img src="./img/cloudiness.png" alt="Cloudiness">
                         </div>
-                        <div class="weather_dew_point weather_props_column dark_mode_smaller_div p-2" title="Dew Point">
+                        <div class="weather_dew_point weather_props_column p-2" title="Dew Point">
                             <h6 data-dew-point class="label"></h6>
                             <img src="./img/dew_point.png" alt="Dew Point">
                         </div>
-                        <div class="weather_pressure weather_props_column dark_mode_smaller_div p-2" title="Pressure">
+                        <div class="weather_pressure weather_props_column p-2" title="Pressure">
                             <h6 data-pressure class="label"></h6>
                             <img src="./img/pressure.png" alt="Pressure">
                         </div>
-                        <div class="weather_air_quality_index weather_props_column dark_mode_smaller_div p-2" title="Air Quality Index">
+                        <div class="weather_air_quality_index weather_props_column p-2" title="Air Quality Index">
                             <h6 data-air-quality-index class="label"></h6>
                             <img src="./img/aqi_index.png" alt="Air Quality Index">
                         </div>
-                        <div class="weather_heat_index weather_props_column dark_mode_smaller_div p-2" title="Heat Index">
+                        <div class="weather_heat_index weather_props_column p-2" title="Heat Index">
                             <h6 data-heat-index class="label"></h6>
                             <img src="./img/heat_index.png" alt="Heat Index">
                         </div>
@@ -111,10 +111,7 @@ weatherInformationContainer.innerHTML = `
 document.body.insertAdjacentElement("afterbegin", weatherInformationContainer);
 
 const developerNoteDiv = document.createElement("div");
-developerNoteDiv.setAttribute(
-  "class",
-  "developer_note_div dark_mode_larger_div"
-);
+developerNoteDiv.setAttribute("class", "developer_note_div dark_mode");
 developerNoteDiv.setAttribute(
   "style",
   "position: relative; padding: 10px; font-size: 12px; box-shadow: rgba(155, 155, 155, 0.3) 0px 3px 8px;"
@@ -138,7 +135,7 @@ removeDevNoteBtn.addEventListener("click", function () {
 });
 
 const footer = document.createElement("div");
-footer.setAttribute("class", "footer_div dark_mode_larger_div");
+footer.setAttribute("class", "footer_div dark_mode");
 footer.setAttribute(
   "style",
   "flex-direction: column; text-align: center; padding: 0.5rem; box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;"
@@ -441,7 +438,6 @@ function setWeatherContainerWithInformation(data) {
 
 // WEIRDEST LEARNING - WOW
 // By declaring the weatherUpdateDiv variable outside of the function and setting it to null, you can reference it in the global scope of your code. Then, inside the function, you can assign the value...
-let weatherUpdateDiv = null;
 function setWeatherContainerWithHourlyUpdates(data) {
   // Setting weather forecast with 3-hrs interval hourly updated with information
   let hourlyUpdatedWeatherDivWrapper = document.createElement("div");
@@ -500,13 +496,7 @@ function setWeatherContainerWithHourlyUpdates(data) {
     );
   }
   weatherContainerBottomDiv.appendChild(hourlyUpdatedWeatherDivWrapper);
-
-  weatherUpdateDiv = hourlyUpdatedWeatherDivWrapper.querySelectorAll(
-    ".weather_update_div"
-  );
-  return weatherUpdateDiv;
 }
-console.log(weatherUpdateDiv);
 //--------------------------------------------------------------------------
 
 function setWeatherContainerWithAirPollutionData(data) {
@@ -576,7 +566,6 @@ function setNearByCities(data) {
   const existingCitiesDivWrapper = citiesDivContainer.querySelector(
     ".cities_div_wrapper"
   );
-
   if (existingCitiesDivWrapper) {
     citiesDivContainer.removeChild(existingCitiesDivWrapper);
   }
@@ -590,44 +579,26 @@ function setNearByCities(data) {
     unit = "F";
     populateAndSwitchUnitsForNearByCitiesContainer();
   });
-
-  const citiesDiv = document.querySelectorAll(".cities_div");
-  let isDarkMode = false;
-  darkModeButton.addEventListener("click", () => {
-    isDarkMode = !isDarkMode;
-    setTheme(citiesDiv);
-    setTheme(developerNoteDiv);
-    setTheme(weatherInformationContainer);
-    setTheme(weatherPropsColumn);
-    setTheme(footer);
-    setTheme(weatherUpdateDiv);
-    darkModeButton.innerText = isDarkMode ? "Dark Mode" : "Light Mode";
-  });
 }
-
 //--------------------------------------------------------------------------
 
-// DARK MODE -----------------------
+// DARK MODE ---------------------------------------------------------------
 const weatherPropsColumn = document.querySelectorAll(".weather_props_column");
 function setTheme(domElement) {
-  if (domElement.length > 1) {
-    domElement.forEach((element) => {
-      if (element.classList.contains("dark_mode_smaller_div")) {
-        element.classList.remove("dark_mode_smaller_div");
-        element.classList.add("light_mode_smaller_div");
-      } else if (element.classList.contains("light_mode_smaller_div")) {
-        element.classList.remove("light_mode_smaller_div");
-        element.classList.add("dark_mode_smaller_div");
-      }
-    });
-  } else {
-    if (domElement.classList.contains("dark_mode_larger_div")) {
-      domElement.classList.remove("dark_mode_larger_div");
-      domElement.classList.add("light_mode_larger_div");
-    } else if (domElement.classList.contains("light_mode_larger_div")) {
-      domElement.classList.remove("light_mode_larger_div");
-      domElement.classList.add("dark_mode_larger_div");
-    }
+  if (domElement.classList.contains("dark_mode")) {
+    domElement.classList.remove("dark_mode");
+    domElement.classList.add("light_mode");
+  } else if (domElement.classList.contains("light_mode")) {
+    domElement.classList.remove("light_mode");
+    domElement.classList.add("dark_mode");
   }
 }
-// END OF DARK MODE-----------------------
+let isDarkMode = false;
+darkModeButton.addEventListener("click", () => {
+  isDarkMode = !isDarkMode;
+  setTheme(developerNoteDiv);
+  setTheme(weatherInformationContainer);
+  setTheme(footer);
+  darkModeButton.innerText = isDarkMode ? "Dark Mode" : "Light Mode";
+});
+// END OF DARK MODE--------------------------------------------------------
